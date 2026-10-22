@@ -127,13 +127,13 @@ const PH={};let idbP=null;
 function idb(){return idbP||(idbP=new Promise((res,rej)=>{const q=indexedDB.open("hdr_photos",1);q.onupgradeneeded=()=>q.result.createObjectStore("p");q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)}))}
 async function idbPut(k,v){const d=await idb();return new Promise((res,rej)=>{const t=d.transaction("p","readwrite");t.objectStore("p").put(v,k);t.oncomplete=res;t.onerror=()=>rej(t.error)})}
 async function idbGet(k){const d=await idb();return new Promise(res=>{const q=d.transaction("p").objectStore("p").get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>res(null)})}
-const src=p=>p.src||PH[p.ref]||"";
+const src=p=>p.src||PH[p.ref]||p.url||"";
 async function hydrate(rs){for(const r of rs)for(const p of [...r.site,...r.att])if(p.ref&&!PH[p.ref])PH[p.ref]=await idbGet(p.ref)||""}
 async function importRaken(auto){const m=$("rakenMsg");m&&(m.textContent="Downloading…");
- try{const d=await(await fetch("raken-data.json",{cache:"no-cache"})).json();let n=0,skip=0;
+ try{const ix=await(await fetch("raken/index.json",{cache:"no-cache"})).json(),d={version:ix.version,projects:ix.projects,reports:[]};for(const mo of ix.months){m&&(m.textContent="Downloading "+mo+"…");d.reports.push(...(await(await fetch("raken/"+mo+".json",{cache:"no-cache"})).json()).reports)}let n=0,skip=0;
   for(const p of d.projects){const i=DB.projects.findIndex(x=>x.id==p.id);if(i<0)DB.projects.push(p);else for(const k in p)if(!DB.projects[i][k]||(Array.isArray(DB.projects[i][k])&&!DB.projects[i][k].length))DB.projects[i][k]=p[k]}
   for(const r of d.reports){const i=DB.reports.findIndex(x=>x.id==r.id);if(i>=0&&DB.reports[i].edited){skip++;continue}
-   for(const k of["site","att"])for(let j=0;j<r[k].length;j++){const p=r[k][j],key=r.id+":"+k+":"+j;if(p.src){await idbPut(key,p.src);PH[key]=p.src}r[k][j]={ref:key,ts:p.ts,cap:p.cap||"",lat:p.lat,lon:p.lon}}
+   for(const k of["site","att"])for(let j=0;j<r[k].length;j++){const p=r[k][j],key=r.id+":"+k+":"+j;if(p.url){r[k][j]={url:p.url,ts:p.ts,cap:p.cap||"",lat:p.lon!=null?p.lat:undefined,lon:p.lon};continue}if(p.src){await idbPut(key,p.src);PH[key]=p.src}r[k][j]={ref:key,ts:p.ts,cap:p.cap||"",lat:p.lat,lon:p.lon}}
    i>=0?DB.reports[i]=r:DB.reports.push(r);n++}
   save();localStorage.setItem("hdr_raken",String(d.version||1));m&&(m.textContent=`Imported ${n} Raken reports${skip?`, kept ${skip} you edited`:""}.`);if(!R&&!$("home").classList.contains("hide"))home();return n}
  catch(e){m&&(m.textContent="Raken import failed: "+e.message+(location.protocol=="file:"?" (open the app from its web address)":""));return 0}}
@@ -316,7 +316,7 @@ async function mapSnap(p,rs,W,H){const pins=[];let n=0;for(const r of rs){for(co
  g.fillStyle="rgba(255,255,255,.9)";g.fillRect(8,8,300,20);g.fillStyle="#000";g.font="11px Arial";g.textAlign="left";g.fillText(`${p.name} · ${pins.length} of ${n} photos located · ~ = approximate`,14,22);
  g.font="8px Arial";g.fillStyle="#fff";g.textAlign="right";g.fillText("Imagery © Esri",W-6,H-5);
  try{return c.toDataURL("image/jpeg",.85)}catch(e){return""}}
-const APP_V='20261022085854';fetch('version.json?'+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v.v&&v.v!=APP_V){if(!sessionStorage.upd){sessionStorage.upd=1;location.replace(location.pathname+'?v='+v.v)}else $('upd').classList.remove('hide')}}).catch(()=>{});
+const APP_V='20261022152225';fetch('version.json?'+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v.v&&v.v!=APP_V){if(!sessionStorage.upd){sessionStorage.upd=1;location.replace(location.pathname+'?v='+v.v)}else $('upd').classList.remove('hide')}}).catch(()=>{});
 home();
-if(!localStorage.getItem("hdr_raken")&&location.protocol!="file:")importRaken(true);
+if(+(localStorage.getItem("hdr_raken")||0)<2&&location.protocol!="file:")importRaken(true);
 </script></body></html>
