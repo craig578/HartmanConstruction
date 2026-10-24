@@ -318,5 +318,5 @@ async function mapSnap(p,rs,W,H){const pins=[];let n=0;for(const r of rs){for(co
  try{return c.toDataURL("image/jpeg",.85)}catch(e){return""}}
 const APP_V='__VER__';fetch('version.json?'+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v.v&&v.v!=APP_V){if(!sessionStorage.upd){sessionStorage.upd=1;location.replace(location.pathname+'?v='+v.v)}else $('upd').classList.remove('hide')}}).catch(()=>{});
 home();
-if(+(localStorage.getItem("hdr_raken")||0)<2&&location.protocol!="file:")importRaken(true);
+if(location.protocol!="file:")fetch("raken/index.json?"+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(ix=>{const k=(ix.count||0)+"|"+(ix.latest||(ix.months||[]).slice(-1)[0]||"")+"|"+(ix.updated||"");if(+(localStorage.getItem("hdr_raken")||0)<2||localStorage.getItem("hdr_raken_key")!==k)importRaken(true).then(n=>{if(n)localStorage.setItem("hdr_raken_key",k)})}).catch(()=>{});
 </script></body></html>

@@ -316,7 +316,7 @@ async function mapSnap(p,rs,W,H){const pins=[];let n=0;for(const r of rs){for(co
  g.fillStyle="rgba(255,255,255,.9)";g.fillRect(8,8,300,20);g.fillStyle="#000";g.font="11px Arial";g.textAlign="left";g.fillText(`${p.name} · ${pins.length} of ${n} photos located · ~ = approximate`,14,22);
  g.font="8px Arial";g.fillStyle="#fff";g.textAlign="right";g.fillText("Imagery © Esri",W-6,H-5);
  try{return c.toDataURL("image/jpeg",.85)}catch(e){return""}}
-const APP_V='20261022171814';fetch('version.json?'+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v.v&&v.v!=APP_V){if(!sessionStorage.upd){sessionStorage.upd=1;location.replace(location.pathname+'?v='+v.v)}else $('upd').classList.remove('hide')}}).catch(()=>{});
+const APP_V='20261024085241';fetch('version.json?'+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v.v&&v.v!=APP_V){if(!sessionStorage.upd){sessionStorage.upd=1;location.replace(location.pathname+'?v='+v.v)}else $('upd').classList.remove('hide')}}).catch(()=>{});
 home();
-if(+(localStorage.getItem("hdr_raken")||0)<2&&location.protocol!="file:")importRaken(true);
+if(location.protocol!="file:")fetch("raken/index.json?"+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(ix=>{const k=(ix.count||0)+"|"+(ix.latest||(ix.months||[]).slice(-1)[0]||"")+"|"+(ix.updated||"");if(+(localStorage.getItem("hdr_raken")||0)<2||localStorage.getItem("hdr_raken_key")!==k)importRaken(true).then(n=>{if(n)localStorage.setItem("hdr_raken_key",k)})}).catch(()=>{});
 </script></body></html>
