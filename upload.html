@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upload Photos – Hartman Construction</title>
+<style>body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#f2f2f2;color:#111}
+header{background:#000;color:#fff;padding:16px;font-weight:700;font-size:18px}
+.c{max-width:520px;margin:20px auto;background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px #0002}
+a.btn{display:block;text-align:center;background:#000;color:#fff;text-decoration:none;padding:16px;border-radius:10px;font-size:18px;font-weight:700;margin:16px 0}
+.m{color:#666;font-size:14px}</style></head><body>
+<header>Hartman Construction · Upload Site Photos</header>
+<div class="c">
+<p>Send your job-site photos to the company record. Pick the project, the date the photos were taken, and as many photos as you like right from your phone.</p>
+<a class="btn" id="go" href="#">📷 Open the upload form</a>
+<p class="m">You'll be asked to sign in with your <b>@hartman.engineering</b> Google account. Photos are stored in the company Google Drive (Hartman Construction – Staff Photo Uploads), sorted by project and date.</p>
+<p class="m"><a href="./">← Back to Daily Reports</a></p></div>
+<script>
+// Set after deploying apps-script/ as a Web App (see README-upload.md)
+const UPLOAD_URL="https://script.google.com/a/macros/hartman.engineering/s/AKfycbxDyUvSuJS3tP9R4XFmiS6Ywoivz-fYPATLmCuC3GTpNzgYPPakju3yyS_E2AMjsK_SWg/exec";
+const go=document.getElementById("go");
+if(UPLOAD_URL.startsWith("https://")){go.href=UPLOAD_URL;if(location.hash=="#go")location.href=UPLOAD_URL}
+else{go.textContent="Upload form coming soon";go.style.background="#999"}
+</script></body></html>

@@ -104,7 +104,7 @@ body{padding-bottom:64px}.pc{border:1px solid #ddd;border-radius:8px;padding:12p
  <div class="card"><button id="saveRep">Save</button><button id="printBtn">Export / Print PDF</button><button class="d" id="delRep">Delete Report</button> <span class="muted" id="saved"></span></div>
 </div>
 </div>
-<nav class="tabs"><button data-tab="home" class="on">Projects</button><button data-tab="allrep">Reports</button><button data-tab="backup">Backup</button></nav>
+<nav class="tabs"><button data-tab="home" class="on">Projects</button><button data-tab="allrep">Reports</button><button data-tab="backup">Backup</button><button data-tab="upload">📷 Upload</button></nav>
 <div id="lb" class="hide" onclick="if(event.target.id=='lb')this.classList.add('hide')"></div>
 <input type="file" id="fileIn" accept="image/*" multiple class="hide">
 <div id="print"></div>
@@ -149,7 +149,7 @@ $("newProj").onclick=()=>{P={id:uid(),name:"",subs:[]};DB.projects.push(P);openP
 $("saveProj").onclick=()=>{Object.assign(P,{name:pName.value,job:pJob.value,address:pAddr.value,lat:pLat.value,lon:pLon.value,by:pBy.value,subs:pSubs.value.split(",").map(s=>s.trim()).filter(Boolean)});save();openProj(P.id)};
 $("delProj").onclick=()=>{if(!confirm("Delete project and all its reports?"))return;DB.projects=DB.projects.filter(p=>p!==P);DB.reports=DB.reports.filter(r=>r.pid!=P.id);save();home()};
 function leave(){if(R){collect();save()}}
-document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{leave();const t=b.dataset.tab;if(t=="home")home();else{P=R=null;if(t=="allrep")allRep();show(t)}});
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{const t=b.dataset.tab;if(t=="upload"){location.href="upload.html";return}leave();if(t=="home")home();else{P=R=null;if(t=="allrep")allRep();show(t)}});
 function allRep(){$("allList").innerHTML=DB.reports.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(r=>{const p=DB.projects.find(x=>x.id==r.pid)||{};return `<div><span>${esc(r.date)} · <b>${esc(p.name)}</b><br><span class="muted">${esc(r.by)}</span></span><button onclick="P=DB.projects.find(x=>x.id=='${r.pid}');openRep('${r.id}')">Open</button></div>`}).join("")||'<p class="muted">No reports yet.</p>'}
 backProj.onclick=()=>home();backRep.onclick=()=>{leave();openProj(P.id)};
 const blank=()=>({id:uid(),pid:P.id,date:today(),by:P.by||"",site:[],att:[],wx:TIMES.map(()=>({t:"",c:"",w:"",p:"",h:""})),notes:"",subs:(P.subs||[]).map(n=>({name:n,items:""})),survey:QS.map(()=>({a:"",d:""})),sig:"",sigTs:""});
@@ -316,7 +316,7 @@ async function mapSnap(p,rs,W,H){const pins=[];let n=0;for(const r of rs){for(co
  g.fillStyle="rgba(255,255,255,.9)";g.fillRect(8,8,300,20);g.fillStyle="#000";g.font="11px Arial";g.textAlign="left";g.fillText(`${p.name} · ${pins.length} of ${n} photos located · ~ = approximate`,14,22);
  g.font="8px Arial";g.fillStyle="#fff";g.textAlign="right";g.fillText("Imagery © Esri",W-6,H-5);
  try{return c.toDataURL("image/jpeg",.85)}catch(e){return""}}
-const APP_V='20261024085241';fetch('version.json?'+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v.v&&v.v!=APP_V){if(!sessionStorage.upd){sessionStorage.upd=1;location.replace(location.pathname+'?v='+v.v)}else $('upd').classList.remove('hide')}}).catch(()=>{});
+const APP_V='20261103074708';fetch('version.json?'+Date.now(),{cache:'no-store'}).then(r=>r.json()).then(v=>{if(v.v&&v.v!=APP_V){if(!sessionStorage.upd){sessionStorage.upd=1;location.replace(location.pathname+'?v='+v.v)}else $('upd').classList.remove('hide')}}).catch(()=>{});
 home();
 if(location.protocol!="file:")fetch("raken/index.json?"+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(ix=>{const k=(ix.count||0)+"|"+(ix.latest||(ix.months||[]).slice(-1)[0]||"")+"|"+(ix.updated||"");if(+(localStorage.getItem("hdr_raken")||0)<2||localStorage.getItem("hdr_raken_key")!==k)importRaken(true).then(n=>{if(n)localStorage.setItem("hdr_raken_key",k)})}).catch(()=>{});
 </script></body></html>
