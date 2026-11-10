@@ -1,0 +1,480 @@
+{
+ "bounds": [
+  [
+   37.88458,
+   -99.242338
+  ],
+  [
+   37.877354,
+   -99.230845
+  ]
+ ],
+ "plan_px": [
+  1357,
+  1081
+ ],
+ "plan_image": "live siteplan (geo:3 image, Craig-dragged)",
+ "features": {
+  "P1": {
+   "label": "Pond #1 / north lagoon (WSP)",
+   "rect": [
+    202,
+    265,
+    532,
+    545
+   ],
+   "band": 28,
+   "aff": {
+    "lagoon": 1,
+    "earthwork": 0.5,
+    "piping": 0.4,
+    "electrical": 0.2
+   }
+  },
+  "CL": {
+   "label": "Covered lagoon digester",
+   "rect": [
+    156,
+    553,
+    526,
+    912
+   ],
+   "band": 28,
+   "aff": {
+    "lagoon": 1,
+    "earthwork": 0.5,
+    "piping": 0.5,
+    "crane": 0.2
+   }
+  },
+  "P2": {
+   "label": "Pond #2 / south lagoon (WSP #2)",
+   "rect": [
+    160,
+    939,
+    524,
+    1071
+   ],
+   "band": 24,
+   "aff": {
+    "lagoon": 1,
+    "earthwork": 0.5,
+    "piping": 0.4,
+    "electrical": 0.2
+   }
+  },
+  "DVO": {
+   "label": "DVO digester & building",
+   "rect": [
+    655,
+    705,
+    800,
+    885
+   ],
+   "aff": {
+    "concrete": 1,
+    "slab": 0.7,
+    "piping": 0.5,
+    "crane": 0.5,
+    "steelbldg": 0.4,
+    "interior": 0.2,
+    "earthwork": 0.3
+   }
+  },
+  "OFF": {
+   "label": "Office / lab (flyer #1)",
+   "rect": [
+    814,
+    767,
+    840,
+    793
+   ],
+   "aff": {
+    "interior": 1,
+    "steelbldg": 0.5,
+    "slab": 0.3,
+    "electrical": 0.3
+   }
+  },
+  "SHOP": {
+   "label": "Electrical & Shop (flyer #10)",
+   "rect": [
+    823,
+    751,
+    841,
+    769
+   ],
+   "aff": {
+    "interior": 0.7,
+    "steelbldg": 0.6,
+    "electrical": 0.6,
+    "piping": 0.3
+   }
+  },
+  "BOIL": {
+   "label": "Boiler & gas mixing (flyer #2)",
+   "rect": [
+    796,
+    760,
+    816,
+    780
+   ],
+   "aff": {
+    "piping": 0.8,
+    "interior": 0.5,
+    "steelbldg": 0.5,
+    "electrical": 0.3
+   }
+  },
+  "GAS": {
+   "label": "Gas upgrading / DMT slab (flyer #3)",
+   "rect": [
+    809,
+    811,
+    841,
+    843
+   ],
+   "aff": {
+    "piping": 1,
+    "electrical": 0.6,
+    "slab": 0.6,
+    "crane": 0.7,
+    "steelbldg": 0.3
+   }
+  },
+  "ELEC": {
+   "label": "Electrical room (flyer #5)",
+   "rect": [
+    834,
+    837,
+    852,
+    855
+   ],
+   "aff": {
+    "electrical": 1,
+    "interior": 0.4,
+    "steelbldg": 0.3
+   }
+  },
+  "FLARE": {
+   "label": "Flare pad (flyer #4)",
+   "rect": [
+    811,
+    874,
+    827,
+    890
+   ],
+   "aff": {
+    "flare": 1,
+    "piping": 0.5,
+    "slab": 0.3,
+    "crane": 0.3
+   }
+  },
+  "SAND": {
+   "label": "Sand removal (flyer #6)",
+   "rect": [
+    827,
+    720,
+    847,
+    740
+   ],
+   "aff": {
+    "piping": 0.7,
+    "concrete": 0.5,
+    "steelbldg": 0.4
+   }
+  },
+  "INFL": {
+   "label": "Influent / manure pits (flyer #7/#9)",
+   "rect": [
+    768,
+    705,
+    796,
+    740
+   ],
+   "aff": {
+    "pit": 1,
+    "concrete": 0.6,
+    "piping": 0.5,
+    "earthwork": 0.3
+   }
+  },
+  "GEN": {
+   "label": "Generator (flyer #8)",
+   "rect": [
+    839,
+    743,
+    853,
+    757
+   ],
+   "aff": {
+    "electrical": 0.9,
+    "crane": 0.5,
+    "slab": 0.3
+   }
+  },
+  "O2": {
+   "label": "Oxygen injection bldg",
+   "rect": [
+    607,
+    777,
+    627,
+    797
+   ],
+   "aff": {
+    "piping": 0.7,
+    "steelbldg": 0.5,
+    "electrical": 0.3
+   }
+  },
+  "BB": {
+   "label": "Bedding / fiber barn",
+   "rect": [
+    1124,
+    638,
+    1161,
+    677
+   ],
+   "aff": {
+    "steelbldg": 0.8,
+    "barn": 0.6,
+    "slab": 0.6,
+    "interior": 0.5,
+    "piping": 0.4,
+    "electrical": 0.4,
+    "concrete": 0.4
+   }
+  },
+  "OCT": {
+   "label": "Manure mixing pits (octagons)",
+   "rect": [
+    1120,
+    688,
+    1168,
+    712
+   ],
+   "aff": {
+    "pit": 1,
+    "concrete": 0.8,
+    "piping": 0.5,
+    "earthwork": 0.3
+   }
+  },
+  "PSP": {
+   "label": "Post screw press pit",
+   "rect": [
+    1082,
+    685,
+    1100,
+    703
+   ],
+   "aff": {
+    "pit": 0.8,
+    "concrete": 0.7,
+    "piping": 0.6
+   }
+  },
+  "BARN": {
+   "label": "Dairy freestall barns (Barn 3 etc.)",
+   "rect": [
+    960,
+    360,
+    1340,
+    600
+   ],
+   "aff": {
+    "barn": 1,
+    "slab": 0.7,
+    "concrete": 0.5,
+    "steelbldg": 0.5,
+    "earthwork": 0.3,
+    "electrical": 0.2
+   }
+  },
+  "DSHOP": {
+   "label": "Twin Circles dairy shop / office",
+   "rect": [
+    970,
+    800,
+    994,
+    860
+   ],
+   "aff": {
+    "steelbldg": 0.6,
+    "interior": 0.6,
+    "piping": 0.3,
+    "electrical": 0.3
+   }
+  },
+  "P3": {
+   "label": "Phase 3 building",
+   "rect": [
+    815,
+    995,
+    880,
+    1030
+   ],
+   "aff": {
+    "steelbldg": 1,
+    "slab": 0.7,
+    "electrical": 0.6,
+    "crane": 0.5,
+    "piping": 0.4
+   }
+  },
+  "GASTAP": {
+   "label": "RNG gas hookup / KG meter at O Road (off-site, north side)",
+   "rect": [
+    250,
+    98,
+    470,
+    120
+   ],
+   "aff": {
+    "earthwork": 1,
+    "piping": 0.7,
+    "crane": 0.2
+   }
+  },
+  "YARD": {
+   "label": "General construction area (north laydown yard)",
+   "rect": [
+    600,
+    235,
+    880,
+    590
+   ],
+   "aff": {
+    "earthwork": 0.6,
+    "crane": 0.4,
+    "doc": 0.5
+   }
+  }
+ },
+ "rules": [
+  [
+   "north lagoon|pond ?#?1\\b|wsp ?#?1\\b",
+   "P1",
+   2
+  ],
+  [
+   "south lagoon|pond ?#?2\\b|wsp ?#?2\\b",
+   "P2",
+   2
+  ],
+  [
+   "covered lagoon|lagoon (cover|digester)|new lagoon|ballast",
+   "CL",
+   2
+  ],
+  [
+   "\\blagoons?\\b(?!.*(north|south))|\\bliner\\b|geomembrane",
+   "CL",
+   0.8
+  ],
+  [
+   "\\bdvo\\b|digester|acid (rack|chamber)|chamber \\d|\\bcells?\\b|\\bwalls? \\d+|slab \\d+[a-z]?\\b|\\bvault\\b|\\bracks?\\b",
+   "DVO",
+   1
+  ],
+  [
+   "\\boffice\\b|\\blab\\b|lab room|server room|restroom|cabinets|drywall|\\bpaint",
+   "OFF",
+   1
+  ],
+  [
+   "boiler|gas mixing",
+   "BOIL",
+   1.5
+  ],
+  [
+   "\\bdmt\\b|paques|upgrad|membrane|compressor|\\bbop\\b|h2s|chiller|\\bskid\\b|scrubber",
+   "GAS",
+   1.5
+  ],
+  [
+   "electrical (room|building)|\\bmcc\\b|switchgear|server",
+   "ELEC",
+   1
+  ],
+  [
+   "\\bgenerator\\b",
+   "GEN",
+   0.8
+  ],
+  [
+   "sand (removal|separ|system)",
+   "SAND",
+   1.5
+  ],
+  [
+   "influent|inlet pit|inlet pump|manure pit(?!s)|recycle pit",
+   "INFL",
+   1.5
+  ],
+  [
+   "octagon|mixing pit|flush pit",
+   "OCT",
+   1.5
+  ],
+  [
+   "post screw|screw press",
+   "PSP",
+   1.5
+  ],
+  [
+   "fiber barn|bedding barn|fiber (building|room)",
+   "BB",
+   2
+  ],
+  [
+   "\\bbarn ?(3|three|\\d)\\b|freestall|dairy barn|\\bcows?\\b",
+   "BARN",
+   1.5
+  ],
+  [
+   "phase ?(3|iii)|\\btitan\\b|roll-?up|fire hydrant",
+   "P3",
+   2
+  ],
+  [
+   "mechanics? shop",
+   "SHOP",
+   1.5
+  ],
+  [
+   "twin circles|dairy (shop|office)",
+   "DSHOP",
+   2
+  ],
+  [
+   "oxygen|\\bo2\\b",
+   "O2",
+   1.5
+  ],
+  [
+   "\\bflare",
+   "FLARE",
+   1.5
+  ],
+  [
+   "\\bo road\\b|\\bo rd\\b|kg supply|supply meter|gas hookup|interconnect|sales? gas line|road bore",
+   "GASTAP",
+   2
+  ],
+  [
+   "site clean|laydown|staging|safety meeting|unload|delivered|deliver(y|ies)",
+   "YARD",
+   0.5
+  ]
+ ],
+ "vis_map": {
+  "UPG": "GAS",
+  "OCTW": "OCT",
+  "OCTE": "OCT",
+  "DOFF": "DSHOP",
+  "MPIT": "INFL",
+  "DVEL": "ELEC"
+ }
+}

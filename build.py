@@ -9,5 +9,8 @@ seed={"projects":[{"id":"sample-bluesky","name":"Test","job":"","address":"1591 
 "subs":[{"name":"Bennett","items":"Backfilling the open trenches around both the north and south lagoons.\nRemoving and reinstalling the 18-inch corrugated pipe at the correct elevation to align with the outlet box.\nContinuing overhead pipe welding for the sand removal system."},
 {"name":"Eck Service","items":"Relocated the BOP panels to the Kansas gas site.\nInstalling ground rings around the Phase 3 building."},{"name":"Titan","items":"On site installing roll-up garage doors."}],
 "survey":[{"a":"N/A","d":""} for _ in range(6)],"sig":b("seed/sig.png","image/png"),"sigTs":ts}]}
-s=open('src.html').read().replace('__SEED__',json.dumps(seed)).replace('__LOGO__',b('logo.png','image/png')).replace('__FAV__',b('fav.png','image/png'))
+import os
+PL=json.load(open('placement/photo-place.json')) if os.path.exists('placement/photo-place.json') else {}
+PF={k:v['label'] for k,v in json.load(open('placement/features.json'))['features'].items()} if os.path.exists('placement/features.json') else {}
+s=open('src.html').read().replace('__PLACE__',json.dumps(PL,separators=(',',':'))).replace('__PF__',json.dumps(PF)).replace('__SEED__',json.dumps(seed)).replace('__LOGO__',b('logo.png','image/png')).replace('__FAV__',b('fav.png','image/png'))
 import time;V=time.strftime('%Y%m%d%H%M%S');s=s.replace('__VER__',V);open('index.html','w').write(s);open('version.json','w').write(json.dumps({'v':V}))
