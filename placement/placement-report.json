@@ -9,7 +9,7 @@
    -99.230845
   ]
  ],
- "total": 6968,
+ "total": 6982,
  "by_method": {
   "visual+drawing": 3233,
   "fallback": 2319,
@@ -98,7 +98,7 @@
   "l": 2319,
   "m": 3516
  },
- "low_confidence_count": 2319,
+ "low_confidence_count": 2327,
  "low_confidence_list": [
   {
    "photo": "2024-10-09|s|0",
@@ -9375,6 +9375,38 @@
   {
    "photo": "2026-10-28|a|7",
    "why": "guess DVO digester & building"
+  },
+  {
+   "photo": "2026-11-10|s|1",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
+  },
+  {
+   "photo": "2026-11-10|s|3",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
+  },
+  {
+   "photo": "2026-11-10|a|0",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
+  },
+  {
+   "photo": "2026-11-10|a|2",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
+  },
+  {
+   "photo": "2026-11-10|a|3",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
+  },
+  {
+   "photo": "2026-11-10|a|5",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
+  },
+  {
+   "photo": "2026-11-10|a|6",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
+  },
+  {
+   "photo": "2026-11-10|a|7",
+   "why": "11/10 trench/ground-detail photo, no GPS, not identifiable on drawings \u2192 general yard"
   }
  ]
 }
